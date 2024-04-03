@@ -59,7 +59,7 @@ public class Main {
                 System.out.println("Ce cont vrei sa faci: admin/viz");
                 imput = scanner.nextLine();
 
-                if (imput.equals("admin")) {
+                if (imput.equals("Admin")) {
 
                     System.out.println("Introdu email");
                     String email = scanner.nextLine();
@@ -75,7 +75,7 @@ public class Main {
 
 
 
-                } else if (imput.equals("viz")) {
+                } else if (imput.equals("Viz")) {
 
                     //Create new account nevoie de mail si parola
                     System.out.println("Arunca mail");
@@ -98,17 +98,17 @@ public class Main {
         System.out.println("log out, modifica cont, sterge cont");
         while(logat == true){
             String imput = scanner.nextLine();
-            if(imput.equals("log out")){
+            if(imput.equals("Log out")){
                 System.out.println("GG you're out");
                 logat = false;
                 //REMINDER: SA TE INTREBE DACA VREI SA REINTRI(PT A TESTA CONTUL MODIFICAT)
 
 
-            } else if (imput.equals("modifica cont")) {
+            } else if (imput.equals("Modifica cont")) {
                 System.out.println("Ce vrei sa modifici: mail, password");
                 imput = scanner.nextLine();
 
-                if (imput.equals("mail")) {
+                if (imput.equals("Mail")) {
                     Cont contTemp = new Cont();
                     System.out.println("Introdu mail");
                     String mail = scanner.nextLine();
@@ -122,7 +122,7 @@ public class Main {
                     System.out.println("Ce vrei sa faci in cont");
                     System.out.println("log out, modifica cont, sterge cont");
 
-                } if (imput.equals("password")) {
+                } if (imput.equals("Password")) {
                     Cont contTemp = new Cont();
                     System.out.println("Introdu password");
                     String password = scanner.nextLine();
@@ -138,7 +138,7 @@ public class Main {
                     //CUM E MODIFICA IN ARRAY LIST(CRISTI)
                 }
 
-            } else if (imput.equals("sterge cont")) {
+            } else if (imput.equals("Sterge cont")) {
                 System.out.println("Introdu Email");
                 String email = scanner.nextLine();
                 System.out.println("Introdu parola");
