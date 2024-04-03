@@ -145,7 +145,7 @@ public class Main {
                 String password = scanner.nextLine();
 
                 //Cont temporar pentru stergere
-                Cont contTemp = new Cont(email, password);
+                Cont contTemp = new Cont(email, password,"");
                 //Cautam contul in lista
                 contTemp = lista.stream().filter(contTeoretic -> contTeoretic.getEmail().equals(email)).findFirst().orElse(contTemp);
 
