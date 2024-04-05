@@ -9,7 +9,7 @@ public class Cont {
         this.id = id;
     }
 
-    public Cont(){
+    public Cont(){//constructor gol fara mail/parola
     }
     public String getEmail(){
         return email;
