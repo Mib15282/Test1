@@ -33,4 +33,8 @@ public class LogInService {
         return false;
     }
 
+    public boolean accountAlreadyExists(String email){
+        return (lista.stream().filter(contTeoretic -> contTeoretic.getEmail().equals(email)).findFirst().isPresent());
+        //^da true daca nu e, false daca e, asa ca inversam cu "!" sau inlocuim isEmpty() cu isPresent()
+    }
 }

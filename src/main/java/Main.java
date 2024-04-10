@@ -1,11 +1,16 @@
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
 
-
+@SpringBootApplication
 public class Main {
     public static void main(String[] args) {
+        SpringApplication.run(Main.class, args);
+
         Scanner scanner = new Scanner(System.in);
         List<Cont> lista = new ArrayList<>();
 
@@ -68,6 +73,7 @@ public class Main {
                     //+ai nevoie de security shit
 
                     List<Cont> listaAdministrare = new ArrayList<>();
+
                     ContAdmin cont = new ContAdmin(email, password, listaAdministrare);
                     lista.add(cont);
 

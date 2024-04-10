@@ -5,7 +5,7 @@ public class ContAdmin extends Cont {
     List<Cont> listaConturiAdministrate = new ArrayList<>();
 
     public ContAdmin(String email, String password, List<Cont> listaConturiAdministrate) {
-        super(email, password);
+        super(email, password, "");
         this.listaConturiAdministrate = listaConturiAdministrate;
     }
 
