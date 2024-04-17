@@ -8,9 +8,10 @@ public class LogInService {
     List<Cont> lista = new ArrayList<>();
     public LogInService getInstance(){
         if(instance == null){
-            instance = new LogInService();
+            instance = new LogInService(); //constructor apelat
         }
         return instance;
+    //@Autowired apeleaza si reda instanta automat
     }
     public void addContLista(Cont contExtern){
         this.lista.add(contExtern);

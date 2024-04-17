@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.UUID;
 
-@Component
+@Component //cod intretinut in mod direct de sping boot
 @Service
 public class SignUpService {
 
