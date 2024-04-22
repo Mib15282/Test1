@@ -1,3 +1,6 @@
+import data.Cont;
+import data.ContAdmin;
+import data.ContViz;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -20,18 +23,18 @@ public class SignUpService {
         }
         /*
         if (accountType == AccountType.Viz) {
-            ContViz contViz = new ContViz(email, password);
+            data.ContViz contViz = new data.ContViz(email, password);
             logInService.addContLista(contViz);
             return true;
         }
         if (accountType == AccountType.Admin) {
-            ContAdmin contAdmin = new ContAdmin(email, password, new ArrayList<Cont>());
+            data.ContAdmin contAdmin = new data.ContAdmin(email, password, new ArrayList<data.Cont>());
             logInService.addContLista(contAdmin);
             return true;
         }
         if (accountType == AccountType.User) {
             String id = UUID.randomUUID().toString();
-            Cont contUser = new Cont(email, password, id);
+            data.Cont contUser = new data.Cont(email, password, id);
             logInService.addContLista(contUser);
             return true;
         }

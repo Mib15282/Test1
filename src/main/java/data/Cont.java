@@ -1,7 +1,22 @@
+package data;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import org.springframework.stereotype.Component;
+
+@Component
+@Entity
+@Table(name = "tUser")
 public class Cont {
-    private String email;
-    private String password;
+    @Id
+    @Column(name = "userId")//O COLOANA poate avea si proprietatile unic si nullable(accepta null)
     private String id;
+    @Column(name = "userEmail")
+    private String email;
+    @Column(name = "userPassword")
+    private String password;
 
     public Cont(String email, String password, String id){
         this.email = email;
