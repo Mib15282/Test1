@@ -1,16 +1,19 @@
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 public class Main {
 
     public static void main(String[] args) {
-        LogInService logInService = LogInService.instance.getInstance();
-        SignUpService signUpService = new SignUpService(logInService);
-        //creez script care creeaza cont de fiecare tip
+
+        ConfigurableApplicationContext applicationContext = SpringApplication.run(Main.class, args);
+        SignUpService signUpService = applicationContext.getBean(SignUpService.class);
         signUpService.signUp("email","password",AccountType.Viz);
         signUpService.signUp("email1","password1",AccountType.Admin);
         signUpService.signUp("email2","password2",AccountType.User);
 
     }
 }
+
 

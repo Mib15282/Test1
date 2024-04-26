@@ -1,6 +1,10 @@
 import data.Cont;
 import data.ContAdmin;
 import data.ContViz;
+import data.repositories.ContAdminRepository;
+import data.repositories.ContRepository;
+import data.repositories.ContVizRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -10,11 +14,18 @@ import java.util.UUID;
 @Component //cod intretinut in mod direct de sping boot
 @Service
 public class SignUpService {
+    ContRepository contRepository;
+    ContVizRepository contVizRepository;
+    ContAdminRepository contAdminRepository;
 
     private LogInService logInService;
 
-    public SignUpService(LogInService logInService) {
-        this.logInService = logInService.getInstance();
+    @Autowired
+    public SignUpService(LogInService logInService,ContRepository contRepository, ContVizRepository contVizRepository, ContAdminRepository contAdminRepository) {
+        this.logInService = logInService;
+        this.contVizRepository = contVizRepository;
+        this.contRepository = contRepository;
+        this.contAdminRepository = contAdminRepository;
     }
 
     public boolean signUp(String email, String password, AccountType accountType) {
@@ -45,18 +56,18 @@ public class SignUpService {
         switch (accountType) {
             case Viz -> {
                 ContViz contViz = new ContViz(email, password);
-                logInService.addContLista(contViz);
+                contVizRepository.save(contViz);
                 return true;
             }
             case Admin -> {
                 ContAdmin contAdmin = new ContAdmin(email, password, new ArrayList<Cont>());
-                logInService.addContLista(contAdmin);
+                contAdminRepository.save(contAdmin);
                 return true;
             }
             case User -> {
                 String id = UUID.randomUUID().toString();
                 Cont contUser = new Cont(email, password, id);
-                logInService.addContLista(contUser);
+                contRepository.save(contUser);
                 return true;
             }
         }

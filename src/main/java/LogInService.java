@@ -1,27 +1,22 @@
 import data.Cont;
+import data.repositories.ContRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-
+@Service
+@Component
 public class LogInService {
-    public static LogInService instance;
-    //la var daca e initiaizata nu poate fii modificata;
+    ContRepository contRepository;
 
-    List<Cont> lista = new ArrayList<>();
-    public LogInService getInstance(){
-        if(instance == null){
-            instance = new LogInService(); //constructor apelat
-        }
-        return instance;
-    //@Autowired apeleaza si reda instanta automat
+    @Autowired
+    public LogInService (ContRepository contRepository){
+        this.contRepository = contRepository;
     }
-    public void addContLista(Cont contExtern){
-        this.lista.add(contExtern);
-    }
+
     public boolean logIn(String email, String password){
-
         Cont cont = new Cont();
-        cont = lista.stream().filter(contTeoretic -> contTeoretic.getEmail().equals(email)).findFirst().orElse(cont);//nume teoretic de var
+        cont = contRepository.findAll().stream().filter(contTeoretic -> contTeoretic.getEmail().equals(email)).findFirst().orElse(cont);//nume teoretic de var
         if (cont.getEmail() == null) {
             return false;
         } else {
@@ -37,7 +32,7 @@ public class LogInService {
     }
 
     public boolean accountAlreadyExists(String email){
-        return (lista.stream().filter(contTeoretic -> contTeoretic.getEmail().equals(email)).findFirst().isPresent());
+        return (contRepository.findAll().stream().anyMatch(contTeoretic -> contTeoretic.getEmail().equals(email)));
         //^da true daca nu e, false daca e, asa ca inversam cu "!" sau inlocuim isEmpty() cu isPresent()
     }
 }
