@@ -1,6 +1,6 @@
-package data.repositories;
+package rootPackage.data.repositories;
 
-import data.ContAdmin;
+import rootPackage.data.ContAdmin;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ContAdminRepository extends JpaRepository<ContAdmin, String> {

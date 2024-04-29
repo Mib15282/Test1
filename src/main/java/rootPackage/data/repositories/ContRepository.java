@@ -1,6 +1,6 @@
-package data.repositories;
+package rootPackage.data.repositories;
 
-import data.Cont;
+import rootPackage.data.Cont;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ContRepository extends JpaRepository <Cont, String>{

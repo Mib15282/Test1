@@ -1,4 +1,4 @@
-package data;
+package rootPackage.data;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,6 +17,8 @@ public class Cont {
     private String email;
     @Column(name = "userPassword")
     private String password;
+    @Column(name = "admin")
+    private ContAdmin admin;
 
     public Cont(String email, String password, String id){
         this.email = email;

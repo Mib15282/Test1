@@ -1,12 +1,15 @@
-import data.Cont;
-import data.ContAdmin;
-import data.ContViz;
-import data.repositories.ContAdminRepository;
-import data.repositories.ContRepository;
-import data.repositories.ContVizRepository;
+package rootPackage.services;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import rootPackage.AccountType;
+import rootPackage.data.Cont;
+import rootPackage.data.ContAdmin;
+import rootPackage.data.ContViz;
+import rootPackage.data.repositories.ContAdminRepository;
+import rootPackage.data.repositories.ContRepository;
+import rootPackage.data.repositories.ContVizRepository;
 
 import java.util.ArrayList;
 import java.util.UUID;
@@ -33,19 +36,19 @@ public class SignUpService {
             return false;
         }
         /*
-        if (accountType == AccountType.Viz) {
-            data.ContViz contViz = new data.ContViz(email, password);
+        if (accountType == rootPackage.AccountType.Viz) {
+            rootPackage.data.ContViz contViz = new rootPackage.data.ContViz(email, password);
             logInService.addContLista(contViz);
             return true;
         }
-        if (accountType == AccountType.Admin) {
-            data.ContAdmin contAdmin = new data.ContAdmin(email, password, new ArrayList<data.Cont>());
+        if (accountType == rootPackage.AccountType.Admin) {
+            rootPackage.data.ContAdmin contAdmin = new rootPackage.data.ContAdmin(email, password, new ArrayList<rootPackage.data.Cont>());
             logInService.addContLista(contAdmin);
             return true;
         }
-        if (accountType == AccountType.User) {
+        if (accountType == rootPackage.AccountType.User) {
             String id = UUID.randomUUID().toString();
-            data.Cont contUser = new data.Cont(email, password, id);
+            rootPackage.data.Cont contUser = new rootPackage.data.Cont(email, password, id);
             logInService.addContLista(contUser);
             return true;
         }

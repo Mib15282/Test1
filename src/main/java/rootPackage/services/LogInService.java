@@ -1,5 +1,7 @@
-import data.Cont;
-import data.repositories.ContRepository;
+package rootPackage.services;
+
+import rootPackage.data.Cont;
+import rootPackage.data.repositories.ContRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
