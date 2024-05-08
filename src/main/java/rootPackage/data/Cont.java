@@ -1,9 +1,6 @@
 package rootPackage.data;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -17,7 +14,7 @@ public class Cont {
     private String email;
     @Column(name = "userPassword")
     private String password;
-    @Column(name = "admin")
+    @ManyToOne
     private ContAdmin admin;
 
     public Cont(String email, String password, String id){
